@@ -22,6 +22,7 @@ export const conversionProvider=({children})=>{
     const [from,setFrom]=useState('')
     const [to,setTo]=useState('')
     const [amount,setAmount]=useState(0)
+    const [result,SetResult]=useState({})
 
     useEffect(()=>{
       currList()
@@ -38,12 +39,13 @@ export const conversionProvider=({children})=>{
     const convert=async()=>{
       const response = await fetch(`https://v6.exchangerate-api.com/v6/${conversionToken}/pair/${from}/${to}/${amount}`)
       const data = await response.json();
-      console.log(data)
+      SetResult(data)
+      
 
 
     }
 
-  return <conversionContext.Provider value={{currencyList,from,setFrom,to,setTo,amount,setAmount,convert}}>{children}</conversionContext.Provider>
+  return <conversionContext.Provider value={{currencyList,from,setFrom,to,setTo,amount,setAmount,convert,result}}>{children}</conversionContext.Provider>
 
 
 }

@@ -15,7 +15,7 @@ import Button from '@mui/material/Button';
 
 function ConversionForm() {
 
-  const {currencyList,from,setFrom,to,setTo,amount,setAmount,convert}=useContext(conversionContext)
+  const {currencyList,from,setFrom,to,setTo,setAmount,convert}=useContext(conversionContext)
   const list = Object.entries(currencyList)
   
    const fromHandleChange=(event)=>{
